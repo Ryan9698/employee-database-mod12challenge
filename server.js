@@ -12,7 +12,7 @@ const db = mysql.createConnection(
     host: 'localhost', 
     user: 'root',
     password: 'Password123',
-    database: 'classlist_db'
+    database: 'company_db'
   },
   console.log(`Connected to the classlist_db database.`)
 );
