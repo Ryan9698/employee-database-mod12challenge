@@ -1,5 +1,7 @@
-const express = require('express');
-const mysql = require('mysql2');
+import express from 'express';
+import mysql from 'mysql2';
+import {init} from './index.js'
+
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -14,18 +16,12 @@ const db = mysql.createConnection(
     password: 'Password123',
     database: 'company_db'
   },
-  console.log(`Connected to the classlist_db database.`)
+  console.log(`Connected to the company_db database.`)
 );
 
-// // Query database
-// db.query('SELECT * FROM students', function (err, results) {
-//   console.log(results);
-// });
+app.get('/', (req, res) => {
+    init(); 
+  });
 
-// // Default response for any other request (Not Found)
-// app.use((req, res) => {
-//   res.status(404).end();
-// });
-
-// app.listen(PORT, () => {
-//   console.log(`Server running on port ${PORT}`)});
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`)});
